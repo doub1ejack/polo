@@ -1,0 +1,51 @@
+{
+  "links": [
+    {
+      "id": 1,
+      "short_url": "https://example.com/abc123",
+      "long_url": "https://example.com/very/long/url",
+      "ip": "192.168.1.1",
+      "creator": "John Doe",
+      "clicks": 0,
+      "secret_key": "secret456",
+      "is_disabled": false,
+      "is_custom": false,
+      "is_api": false,
+      "created_at": "2022-01-01T00:00:00Z",
+      "updated_at": "2022-01-01T00:00:00Z"
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "username": "john_doe",
+      "password": "hashed_password",
+      "email": "john@example.com",
+      "ip": "192.168.1.1",
+      "recovery_key": "recovery_key",
+      "role": "admin",
+      "active": true,
+      "api_key": null,
+      "api_active": false,
+      "api_quota": 60,
+      "created_at": "2022-01-01T00:00:00Z",
+      "updated_at": "2022-01-01T00:00:00Z",
+      "deleted_at": null
+    }
+  ],
+
+  "clicks": [
+    {
+      "id": 1,
+      "ip": "192.168.1.1",
+      "country": "US",
+      "referer": "https://example.com/",
+      "referer_host": "example.com",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
+      "link_id": 1,
+      "created_at": "2022-01-01T00:00:00Z",
+      "updated_at": "2022-01-01T00:00:00Z"
+    }
+  ]
+}

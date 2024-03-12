@@ -1,0 +1,33 @@
+(LAST UPDATED Mar 12, 2024)
+
+The mock API will be accessible at `http://localhost:3000`.
+
+## Available Endpoints
+
+The mock API provides the following endpoints:
+
+- `/links`: Represents links with associated metadata.
+- `/users`: Represents user accounts with authentication information.
+- `/clicks`: Represents click events with related data.
+
+## Data Model
+
+The mock API uses the following data model:
+
+- **Links**: Represents shortened URLs with metadata.
+- **Users**: Represents user accounts with authentication details.
+- **Clicks**: Represents click events with associated information.
+
+The `db.json` file contains predefined data for these models.
+
+## Usage
+
+You can interact with the mock API using HTTP requests, just like with a real API. Use tools like cURL, Postman, or your favorite HTTP client to send requests to the defined endpoints.
+
+For example, to retrieve all links, you can send a GET request to `http://localhost:3000/links`.
+
+## Contributions
+
+Contributions to this mock API are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+Happy mocking!
