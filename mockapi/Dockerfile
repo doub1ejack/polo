@@ -14,7 +14,7 @@ RUN npm install -g json-server
 COPY db.json ./
 
 # Expose the port JSON Server will run on
-EXPOSE 3000
+EXPOSE 4000
 
 # Command to run JSON Server with file watching enabled
-CMD ["json-server", "--watch", "db.json", "--host", "0.0.0.0", "--watch"]
+CMD ["json-server", "--watch", "db.json", "--host", "0.0.0.0", "--port", "4000", "--watch"]
