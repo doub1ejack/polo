@@ -42,6 +42,22 @@ To get started with the project, follow these steps:
 5. Run tests using `npm test`.
 6. Deploy the project using AWS Amplify for CI/CD.
 
+## Getting Started
+
+First, run the Next.js cdevelopment server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## Contributing
 
 Contributions to the project are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
