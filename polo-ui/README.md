@@ -2,7 +2,7 @@
 
 Welcome to the project! This repository contains the source code for a web application built using the following technologies:
 
-- **Frontend:** Next.js
+- **Frontend:** React/Next.js
 - **Backend API:** Node.js (currently mocked via JSON server)
 - **Redirect Engine:** Elixir ()
 - **Authentication & Authorization:** AWS Cognito
@@ -17,11 +17,13 @@ This project uses the following technologies:
 | Technology          | Library/Framework |
 | ------------------- | ----------------- |
 | API Integration     | Next.js           |
+| CSS Framework       | Tailwind CSS      |
 | Code Splitting      | Next.js           |
 | Routing             | Next.js           |
 | State Management    | Redux             |
 | Testing & Debugging | Jest              |
 | UI Framework        | Material-UI (MUI) |
+| TypeScript Support  | TypeScript        |
 
 ### Backend and Infrastructure
 
