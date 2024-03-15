@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <Link href="/links">My Links</Link>
+      <Link href="/links/LinkListPage">My Links</Link>
     </div>
   );
 };
