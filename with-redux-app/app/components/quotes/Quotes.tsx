@@ -3,10 +3,10 @@ import { useGetQuotesQuery } from "@/lib/features/quotes/quotesApiSlice";
 import { useState } from "react";
 import styles from "./Quotes.module.css";
 
-const options = [5, 10, 20, 30];
+const options = [3, 10, 20, 30];
 
 export const Quotes = () => {
-  const [numberOfQuotes, setNumberOfQuotes] = useState(10);
+  const [numberOfQuotes, setNumberOfQuotes] = useState(options[0]);
   // Using a query hook automatically fetches data and returns query values
   const { data, isError, isLoading, isSuccess } =
     useGetQuotesQuery(numberOfQuotes);
@@ -44,12 +44,16 @@ export const Quotes = () => {
             </option>
           ))}
         </select>
+
+        {/* RENDER QUOTES */}
         {data.quotes.map(({ author, quote, id }) => (
           <blockquote key={id}>
-            &ldquo;{quote}&rdquo;
-            <footer>
-              <cite>{author}</cite>
-            </footer>
+            <div className="w-1/2">
+              &ldquo;{quote}&rdquo;
+              <footer>
+                <cite>{author}</cite>
+              </footer>
+            </div>
           </blockquote>
         ))}
       </div>
