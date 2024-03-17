@@ -3,3 +3,6 @@
 
 # Ignore node_modules at root level
 /node_modules
+
+# Misc
+/.vscode
