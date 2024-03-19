@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Links } from "./components/links/Links";
 
 export default function IndexPage() {
-  return <Links />;
+  return <h2>Coming soon</h2>;
 }
 
 export const metadata: Metadata = {
-  title: "Redux Toolkit",
+  title: "Dashboard Stats",
 };
