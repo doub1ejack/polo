@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { StoreProvider } from "../lib/StoreProvider";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid v2 adapts to screen size and orientation
 import { Nav } from "./components/Nav";
+import "./styles/globals.css";
 
 interface Props {
   readonly children: ReactNode;

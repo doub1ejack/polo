@@ -21,7 +21,7 @@ export const Links = () => {
   if (isSuccess) {
     return (
       <div>
-        <List>
+        <List className="text-green-500">
           {data.data.map(
             ({ id, short_url, clicks, created_at, updated_at }) => (
               <ListItem key={id}>
