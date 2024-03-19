@@ -2,28 +2,30 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { linksApiSlice } from "./features/links/linksApiSlice";
 
-// combine slices (which automatically combines reducers too)
-const sliceList = [linksApiSlice];
-const rootReducer = combineSlices(...sliceList);
+const allSlices = [linksApiSlice];
 
-// Infer the `RootState` type from the root reducer
-export type RootState = ReturnType<typeof rootReducer>;
+// Also include any slices using RTK Query
+const allMiddlewares = [linksApiSlice];
 
-// `makeStore` encapsulates the store configuration to allow
-// creating unique store instances, which is particularly important for
-// server-side rendering (SSR) scenarios. In SSR, separate store instances
-// are needed for each request to prevent cross-request state pollution.
+// Combine slices (which automatically combines reducers too)
+const rootReducer = combineSlices(...allSlices);
+
+// Create unique store instances with `makeStore` to avoid SSR cross-state pollution
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat([linksApiSlice.middleware]);
+      return getDefaultMiddleware().concat(
+        allMiddlewares.map((mid) => mid.middleware)
+      );
     },
   });
 };
 
+// TYPE DEFINITIONS
+
+// Infer the `RootState` type from the root reducer
+export type RootState = ReturnType<typeof rootReducer>;
 // Infer the return type of `makeStore`
 export type AppStore = ReturnType<typeof makeStore>;
 // Infer the `AppDispatch` type from the store itself

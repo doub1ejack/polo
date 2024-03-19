@@ -1,4 +1,5 @@
 "use client";
+
 import { useGetLinksQuery } from "@/lib/features/links/linksApiSlice";
 import { useState } from "react";
 // import styles from "./Links.module.css"; // todo
