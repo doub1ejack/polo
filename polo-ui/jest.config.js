@@ -1,11 +1,23 @@
+// jest.config.js
+
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.{js,jsx}"],
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
   coverageDirectory: "coverage",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleNameMapper: {
-    "\\.(scss|sass|css)$": "identity-obj-proxy",
+    "\\.(scss|sass|css)$": "identity-obj-proxy", // TODO: remove now that we're using tailwind + MUI
   },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   testEnvironment: "jsdom",
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  transform: {
+    "^.+\\.(ts|tsx)$": "babel-jest",
+  },
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.jest.json",
+    },
+  },
 };

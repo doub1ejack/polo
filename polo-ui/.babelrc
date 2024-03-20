@@ -1,5 +1,0 @@
-// this file is currently only used to run jest tests on typescript files
-
-{
-  "presets": ["next/babel"]
-}
