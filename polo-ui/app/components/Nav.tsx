@@ -15,7 +15,7 @@ export const Nav = () => {
 
   return (
     <nav>
-      <Tabs value={pathname} aria-label="Navigation tabs">
+      <Tabs value={pathname || false} aria-label="Navigation tabs">
         <Tab
           label="Dashboard"
           value="/"
