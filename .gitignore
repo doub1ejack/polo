@@ -1,6 +1,9 @@
 # Ignore all log files
 *.log
 
+# local env files
+.env
+
 # Ignore node_modules at root level
 /node_modules
 
