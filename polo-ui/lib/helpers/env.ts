@@ -7,7 +7,7 @@ export interface EnvVariablesErrorMessage {
 }
 export function validateEnvVariables(): EnvVariablesErrorMessage[] | null {
   // List of required environment variables
-  const requiredEnvVariables = ["SHORT_URL_DOMAIN_NAME"];
+  const requiredEnvVariables = ["NEXT_PUBLIC_SHORT_URL_DOMAIN_NAME"];
   const missingVars = requiredEnvVariables.reduce(
     (missingVars: EnvVariablesErrorMessage[], envVar: string) => {
       if (!process.env[envVar]) {
