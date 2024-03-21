@@ -6,6 +6,7 @@ module.exports = {
   coverageDirectory: "coverage",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/$1", // alias @ to root directory
     "\\.(scss|sass|css)$": "identity-obj-proxy", // TODO: remove now that we're using tailwind + MUI
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
