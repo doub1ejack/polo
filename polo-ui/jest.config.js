@@ -9,7 +9,7 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/$1", // alias @ to root directory
     "\\.(scss|sass|css)$": "identity-obj-proxy", // TODO: remove now that we're using tailwind + MUI
   },
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  setupFilesAfterEnv: ["@testing-library/jest-dom", "<rootDir>/jest.setup.ts"],
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   testEnvironment: "jsdom",
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
