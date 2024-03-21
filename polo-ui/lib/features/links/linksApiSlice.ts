@@ -3,6 +3,7 @@
  */
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { paginatedLinksFromAPI } from "@/app/links/dummyData";
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
 interface LinkFromAPI {
@@ -23,7 +24,7 @@ interface LinkFromAPI {
 
 interface PaginatedLinksFromAPI {
   first: number;
-  prev: number;
+  prev: number | null;
   next: number | null;
   last: number;
   pages: number;
@@ -41,7 +42,12 @@ interface PaginatedLinks extends PaginatedLinksFromAPI {
 
 // Define a service using a base URL and expected endpoints
 export const linksApiSlice = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiDomain}/links` }),
+  // baseQuery: fetchBaseQuery({ baseUrl: `${apiDomain}/links` }),  // connects to json-server mockapi
+  baseQuery: async () => {
+    return {
+      data: paginatedLinksFromAPI,
+    };
+  },
   reducerPath: "linksApi",
   tagTypes: ["Links"],
   endpoints: (build) => ({
