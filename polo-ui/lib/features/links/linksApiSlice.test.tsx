@@ -35,10 +35,15 @@ describe("linksApiSlice", () => {
   const pageNumber = 1;
 
   it("renders the hook", async () => {
+    // Note: because I'm mocking the api data in the Links slice for this
+    // codesandbox repo, I don't need to mock the fetch function right now.
+    // In my dev repo where I'm using json-server as a mock api, I will need
+    // to mock the fetch function below.
+
     // Mock the fetch function to return a specific response
-    global.fetch = jest.fn(() =>
-      Promise.resolve(new Response(JSON.stringify(dataWithOneLink)))
-    );
+    // global.fetch = jest.fn(() =>
+    //   Promise.resolve(new Response(JSON.stringify(dataWithOneLink)))
+    // );
 
     const { result } = renderHook(() => useGetLinksQuery(pageNumber), {
       wrapper: Wrapper,
@@ -46,7 +51,7 @@ describe("linksApiSlice", () => {
 
     // Check if fetch was called
     await waitFor(() => !result.current.isLoading);
-    expect(global.fetch).toHaveBeenCalledTimes(1);
+    // expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(result.current).toMatchObject({
       status: "pending",
       endpointName: "getLinks",
