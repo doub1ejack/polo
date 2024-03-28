@@ -1,0 +1,21 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "mockapi": {
+      "name": "mockapi",
+      "command": "cd mockapi && npm i && npm run mockapi",
+      "runAtStart": true
+    },
+    "polo-ui": {
+      "name": "polo-ui",
+      "command": "cd polo-ui && npm i && npm run dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      }
+    }
+  }
+}
