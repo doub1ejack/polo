@@ -4,10 +4,13 @@
   "description": "JSON server to mock out a backend during development",
   "main": "index.js",
   "scripts": {
+    "mockapi": "npx json-server db.json --host 0.0.0.0 --port 4000",
     "docker-build": "docker build -t json-server .",
-    "docker-run": "docker run --name mockapi -d -p 4000:4000 -v $(pwd):/app json-server json-server --watch db.json --host 0.0.0.0 --port 4000 && sleep 3 && open http://localhost:4000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docker-run": "docker run --name mockapi -d -p 4000:4000 -v $(pwd):/app json-server json-server --watch db.json --host 0.0.0.0 --port 4000 && sleep 3 && open http://localhost:4000"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
 }

@@ -1,3 +1,8 @@
+# Build a Docker image for JSON Server
+# - not really necessary because it is so simple to run JSON Server locally
+# - but it was a good, quick docker refresher
+
+
 # Use Node.js LTS version as the base image
 FROM node:lts
 
