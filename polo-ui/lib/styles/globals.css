@@ -1,0 +1,18 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .polo-border {
+    @apply border-slate-100 border-2 rounded-xl;
+  }
+  .polo-btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
+  .polo-btn-blue {
+    @apply bg-blue-500 text-white;
+  }
+  .polo-btn-blue:hover {
+    @apply bg-blue-700;
+  }
+}

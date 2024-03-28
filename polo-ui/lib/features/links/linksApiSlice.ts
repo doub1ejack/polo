@@ -3,7 +3,7 @@
  */
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { paginatedLinksFromAPI } from "@/app/links/dummyData";
+import { paginatedLinksFromAPI } from "@/lib/features/links/dummyData";
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
 interface LinkFromAPI {
@@ -32,17 +32,17 @@ interface PaginatedLinksFromAPI {
   data: LinkFromAPI[];
 }
 
-interface Link extends LinkFromAPI {
+export interface PoloLink extends LinkFromAPI {
   domainName: string;
 }
 
-interface PaginatedLinks extends PaginatedLinksFromAPI {
-  data: Link[];
+export interface PaginatedPoloLinks extends PaginatedLinksFromAPI {
+  data: PoloLink[];
 }
 
 // Define a service using a base URL and expected endpoints
 export const linksApiSlice = createApi({
-  // baseQuery: fetchBaseQuery({ baseUrl: `${apiDomain}/links` }),  // connects to json-server mockapi
+  // baseQuery: fetchBaseQuery({ baseUrl: `${apiDomain}/links` }),  // json-server mockapi not deployed on codesandbox
   baseQuery: async () => {
     return {
       data: paginatedLinksFromAPI,
@@ -52,11 +52,13 @@ export const linksApiSlice = createApi({
   tagTypes: ["Links"],
   endpoints: (build) => ({
     // Get paginated links
-    getLinks: build.query<PaginatedLinks, number>({
+    getLinks: build.query<PaginatedPoloLinks, number>({
       query: (pageNumber) => `?_page=${pageNumber}`,
       providesTags: (result, error, id) => [{ type: "Links", id }],
-      transformResponse: (response: PaginatedLinksFromAPI): PaginatedLinks => {
-        const transformedLinks: Link[] = transformPaginatedLinksFromAPI(
+      transformResponse: (
+        response: PaginatedLinksFromAPI
+      ): PaginatedPoloLinks => {
+        const transformedLinks: PoloLink[] = transformPaginatedLinksFromAPI(
           response.data
         );
         return { ...response, data: transformedLinks };
@@ -73,9 +75,11 @@ export const linksApiSlice = createApi({
  * @param linksFromAPI
  * @returns
  */
-function transformPaginatedLinksFromAPI(linksFromAPI: LinkFromAPI[]): Link[] {
+function transformPaginatedLinksFromAPI(
+  linksFromAPI: LinkFromAPI[]
+): PoloLink[] {
   const envDomainName = process.env.NEXT_PUBLIC_SHORT_URL_DOMAIN_NAME;
-  return linksFromAPI.map((link): Link => {
+  return linksFromAPI.map((link): PoloLink => {
     return {
       ...link,
       domainName: envDomainName as string, // safe type narrowing (see env.ts)

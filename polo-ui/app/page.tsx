@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import ErrorMessages from "@/app/_components/helper/RuntimeErrors";
+import LinkListPage from "@/app/links/page";
 import {
   EnvVariablesErrorMessage,
   validateEnvVariables,
 } from "@/lib/helpers/env";
-import ErrorMessages from "@/app/components/helper/page";
 
 // Validate environment variables
 const envsValidation = validateEnvVariables();
@@ -15,7 +16,7 @@ export default function IndexPage() {
       <ErrorMessages envErrors={envsValidation as EnvVariablesErrorMessage[]} />
     );
   } else {
-    return <h2>Dashboard coming soon</h2>;
+    return <LinkListPage />;
   }
 }
 
