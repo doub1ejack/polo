@@ -16,7 +16,7 @@ export const Nav = () => {
   rootPath = rootPath === "/links" ? "/" : rootPath;
 
   return (
-    <nav>
+    <nav className="max-w-lg">
       <Tabs value={rootPath || false} aria-label="Navigation tabs">
         <Tab label="My Short Urls" value="/" href="/" {...a11yProps(0)} />
         <Tab

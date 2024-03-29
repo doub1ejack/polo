@@ -23,7 +23,7 @@ export default function Layout({ children }: Props) {
 
             {/* Main Content (narrow) */}
             <Grid xs={12} display="flex" justifyContent="center">
-              <main>{children}</main>
+              <main className="max-w-lg">{children}</main>
             </Grid>
           </Grid>
         </body>

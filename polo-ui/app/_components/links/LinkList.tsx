@@ -11,7 +11,7 @@ interface LinkListProps {
 
 export const LinkList = ({ linkList }: LinkListProps) => {
   return (
-    <div>
+    <div className="max-w-xl">
       <div className="flow-root mb-2 mt-4 text-gray-400 text-sm">
         <span className="float-left  pl-5">Active For</span>
         <span className="float-right ">Clicks</span>
