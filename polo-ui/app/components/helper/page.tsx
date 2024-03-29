@@ -1,16 +1,16 @@
 import React from "react";
-import { EnvVariablesErrorMessage } from "@/lib/helpers/env";
+import { PoloErrorMessage } from "@/lib/helpers/env";
 import { List, ListItem, ListItemText, ListSubheader } from "@mui/material";
 
 interface ErrorMessagesProps {
-  envErrors: EnvVariablesErrorMessage[];
+  envErrors: PoloErrorMessage[];
 }
 
 /**
  * ErrorMessages should be used for unrecoverable errors that break the application.
  *
  * @component
- * @param {EnvVariablesErrorMessage[]} props.envErrors - An array of error messages to display
+ * @param {PoloErrorMessage[]} props.envErrors - An array of error messages to display
  */
 const ErrorMessages: React.FC<ErrorMessagesProps> = ({ envErrors }) => {
   return (

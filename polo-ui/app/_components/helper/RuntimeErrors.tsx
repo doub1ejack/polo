@@ -1,9 +1,9 @@
 import React from "react";
-import { EnvVariablesErrorMessage } from "@/lib/helpers/env";
+import { PoloErrorMessage } from "@/lib/helpers/env";
 import { List, ListItem, ListItemText, ListSubheader } from "@mui/material";
 
 interface ErrorMessagesProps {
-  envErrors: EnvVariablesErrorMessage[];
+  errors: PoloErrorMessage[];
 }
 
 /**
@@ -11,13 +11,13 @@ interface ErrorMessagesProps {
  *
  * @todo Consider overriding a custom error instead (https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
  * @component
- * @param {EnvVariablesErrorMessage[]} props.envErrors - An array of error messages to display
+ * @param {PoloErrorMessage[]} props.errors - An array of error messages to display
  */
-const ErrorMessages: React.FC<ErrorMessagesProps> = ({ envErrors }) => {
+const RuntimeErrorMessages: React.FC<ErrorMessagesProps> = ({ errors }) => {
   return (
     <List>
-      <ListSubheader>Environment Variables Errors</ListSubheader>
-      {envErrors.map((error, index) => (
+      <ListSubheader>Oooo, that's going to be a problem...</ListSubheader>
+      {errors.map((error, index) => (
         <ListItem key={index} className="bg-red-100 rounded-md">
           <ListItemText primary={error.message} />
         </ListItem>
@@ -26,4 +26,4 @@ const ErrorMessages: React.FC<ErrorMessagesProps> = ({ envErrors }) => {
   );
 };
 
-export default ErrorMessages;
+export default RuntimeErrorMessages;

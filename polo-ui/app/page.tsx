@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import ErrorMessages from "@/app/_components/helper/RuntimeErrors";
+import RuntimeErrorMessages from "@/app/_components/helper/RuntimeErrors";
 import LinkListPage from "@/app/links/page";
-import {
-  EnvVariablesErrorMessage,
-  validateEnvVariables,
-} from "@/lib/helpers/env";
+import { PoloErrorMessage, validateEnvVariables } from "@/lib/helpers/env";
 
 // Validate environment variables
 const envsValidation = validateEnvVariables();
@@ -13,7 +10,7 @@ const envsValid = envsValidation == null ? true : false;
 export default function IndexPage() {
   if (!envsValid) {
     return (
-      <ErrorMessages envErrors={envsValidation as EnvVariablesErrorMessage[]} />
+      <RuntimeErrorMessages envErrors={envsValidation as PoloErrorMessage[]} />
     );
   } else {
     return <LinkListPage />;
