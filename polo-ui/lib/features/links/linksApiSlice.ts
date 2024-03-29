@@ -58,9 +58,13 @@ export const linksApiSlice = createApi({
         return { ...response, data: transformedLinks };
       },
     }),
-    // getLinkDetail: build.query<Link, number>({
-    //   query: (linkId) => `/${linkId}`,
-    // }),
+    getLinkDetail: build.query<PoloLink, number>({
+      query: (linkId) => `/${linkId}`,
+      providesTags: (result, error, id) => [{ type: "Links", id }],
+      transformResponse: (response: LinkFromAPI): PoloLink => {
+        return transformOnePaginatedLinkFromAPI(response);
+      },
+    }),
   }),
 });
 
@@ -74,11 +78,21 @@ function transformPaginatedLinksFromAPI(
 ): PoloLink[] {
   const envDomainName = process.env.NEXT_PUBLIC_SHORT_URL_DOMAIN_NAME;
   return linksFromAPI.map((link): PoloLink => {
-    return {
-      ...link,
-      domainName: envDomainName as string, // safe type narrowing (see env.ts)
-    };
+    return transformOnePaginatedLinkFromAPI(link);
   });
 }
 
-export const { useGetLinksQuery } = linksApiSlice;
+/**
+ * Transforms individual LinkFromAPI objects to Link objects for use in the UI
+ * @param linkFromAPI
+ * @returns
+ */
+function transformOnePaginatedLinkFromAPI(link: LinkFromAPI): PoloLink {
+  const envDomainName = process.env.NEXT_PUBLIC_SHORT_URL_DOMAIN_NAME;
+  return {
+    ...link,
+    domainName: envDomainName as string, // safe type narrowing (see env.ts)
+  };
+}
+
+export const { useGetLinksQuery, useGetLinkDetailQuery } = linksApiSlice;

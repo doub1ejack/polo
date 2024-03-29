@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useGetLinkDetailQuery } from "@/lib/features/links/linksApiSlice";
 
 export default function LinkPage() {
   return (
