@@ -6,6 +6,7 @@ import RuntimeErrorMessages from "@/app/_components/helper/RuntimeErrors";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import moment from "moment";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Link from "next/link";
 
 export default function LinkPage() {
@@ -28,7 +29,9 @@ export default function LinkPage() {
           <form className="flex flex-row flex-wrap gap-5 justify-between">
             <div className="w-full">
               <Link href="/links">
-                <Button variant="text">&laquo; Back</Button>
+                <Button variant="text" className="text-mui-blue">
+                  &laquo; Back
+                </Button>
               </Link>
             </div>
 
@@ -38,37 +41,63 @@ export default function LinkPage() {
               {moment(query.data.created_at).format("MM/DD/YY @ h:mm a")}
             </div>
 
-            <TextField
-              className="w-full "
-              varient="outlined"
-              label="Custom URL"
-              value={query.data.slug}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    {/* <ContentCopyIcon className="mr-6" /> */}
-                    <span className=" text-gray-400">
-                      http://{query.data.domainName} /
-                    </span>
-                  </InputAdornment>
-                ),
-              }}
-              disabled
-            />
-            <TextField
-              className="w-full"
-              varient="outlined"
-              label="Destination URL"
-              value={query.data.dest_url}
-              // InputProps={{
-              //   startAdornment: (
-              //     <InputAdornment position="start">
-              //       <ContentCopyIcon className="mr-5" />
-              //     </InputAdornment>
-              //   ),
-              // }}
-              disabled
-            />
+            {/* Short URL */}
+            <div className="w-full flex items-center">
+              <TextField
+                className="basis-5/6"
+                label="Custom URL"
+                value={query.data.slug}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <span className=" text-gray-400">
+                        {/* TODO: address hardcoded https + SSL */}
+                        https://{query.data.domainName} /{" "}
+                      </span>
+                    </InputAdornment>
+                  ),
+                }}
+                disabled
+              />
+              <div>
+                <ContentCopyIcon
+                  className="ml-3 text-2xl text-gray-600 hover:text-mui-blue hover:cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `https://${query.data.domainName}/${query.data.slug}`
+                    );
+                  }}
+                />
+              </div>
+              <div>
+                <a href="{query.data.dest_url}" target="_blank">
+                  <OpenInNewIcon className="ml-3 text-2xl text-gray-600 hover:text-mui-blue hover:cursor-pointer" />
+                </a>
+              </div>
+            </div>
+
+            {/* Destinatoin URL */}
+            <div className="w-full flex items-center">
+              <TextField
+                className="basis-5/6"
+                label="Destination URL"
+                value={query.data.dest_url}
+                disabled
+              />
+              <div>
+                <ContentCopyIcon
+                  className="ml-3 text-2xl text-gray-600 hover:text-mui-blue hover:cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText(`${query.data.dest_url}`);
+                  }}
+                />
+              </div>
+              <div>
+                <a href={query.data.dest_url} target="_blank">
+                  <OpenInNewIcon className="ml-3 text-2xl text-gray-600 hover:text-mui-blue hover:cursor-pointer" />
+                </a>
+              </div>
+            </div>
           </form>
 
           <pre className="hidden">{JSON.stringify(query.data, null, 2)}</pre>
