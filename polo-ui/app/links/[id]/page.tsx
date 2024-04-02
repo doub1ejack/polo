@@ -22,7 +22,6 @@ export default function LinkPage() {
   }
 
   if (query.isSuccess) {
-    console.log(query);
     return (
       <>
         <div className="polo-border p-7 w-full mt-5">

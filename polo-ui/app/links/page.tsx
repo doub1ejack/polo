@@ -4,15 +4,29 @@ import { useGetLinksQuery } from "@/lib/features/links/linksApiSlice";
 import { useState } from "react";
 import { LinkList } from "@/app/_components/links/LinkList";
 import { Pagination, Stack } from "@mui/material";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function LinkListPage() {
-  const [pageNumber, setPageNumber] = useState(1); // TODO: Implement pagination
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const pageNumber = Number(searchParams.get("_page")) || 1;
+
+  // const [pageNumber, setPageNumber] = useState(1); // TODO: Implement pagination
   const {
     data: paginationData,
     isError,
     isLoading,
     isSuccess,
   } = useGetLinksQuery(pageNumber);
+
+  const handlePaginationChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    // alert("ding");
+    router.push(`${pathname}?_page=${page}`);
+  };
 
   if (isLoading) {
     // TODO: Make this a pretty loading spinner
@@ -37,7 +51,7 @@ export default function LinkListPage() {
               count={paginationData.pages}
               shape="rounded"
               className="justify-center"
-              onChange={(event, value) => setPageNumber(value)}
+              onChange={handlePaginationChange}
             />
           </Stack>
         )}

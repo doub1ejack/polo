@@ -46,6 +46,7 @@ export const linksApiSlice = createApi({
   tagTypes: ["Links"],
   endpoints: (build) => ({
     // Get paginated links
+    // NOTE: The query parameter is dictated by our mock API server (json-server)
     getLinks: build.query<PaginatedPoloLinks, number>({
       query: (pageNumber) => `?_page=${pageNumber}`,
       providesTags: (result, error, id) => [{ type: "Links", id }],
