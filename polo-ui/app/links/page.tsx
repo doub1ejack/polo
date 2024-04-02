@@ -30,17 +30,17 @@ export default function LinkListPage() {
           <LinkList linkList={paginationData.data} />
         )}
 
-        {/* Remove conditional pagination for demo purposes on codesandbox */}
-        {/* {paginationData.pages > 1 && ( */}
-        <Stack alignItems="center">
-          <Pagination
-            page={pageNumber}
-            count={paginationData.pages}
-            shape="rounded"
-            className="justify-center"
-          />
-        </Stack>
-        {/* )} */}
+        {paginationData.pages > 1 && (
+          <Stack alignItems="center">
+            <Pagination
+              page={pageNumber}
+              count={paginationData.pages}
+              shape="rounded"
+              className="justify-center"
+              onChange={(event, value) => setPageNumber(value)}
+            />
+          </Stack>
+        )}
       </>
     );
   }
