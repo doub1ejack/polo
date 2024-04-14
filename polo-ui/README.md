@@ -9,21 +9,21 @@ Polo is a self-hosted url shortner platform. Key features to include:
 
 This project was inspired by the php project Polr.
 
-## Dear Hiring Manager/Team...
+## Why I'm building this:
 
-This project serves 3 purposes:
+This is a fairly academic project that serves 3 purposes:
 
-1. A code sample for my job search
+1. A codebase for talking points about React/Next.js
 2. A way to refresh/explore some new/updated technologies
 3. A coder's "_I'll just build it myself_" reaction to bit.ly's new pricing structure
 
-**What I'm Demonstrating** – I am showing my ability to configure and manipulate the many different components of a realworld project. As a fullstack developer, my personal value proposition is having broad enough experience to implement tools, both new & familiar, across engineering boundaries (frontend, backend, data stores, apis, infrastructure, and deployment).
+**What It Demonstrates** – It's a chance to configure and manipulate the many different components of a realworld project – without the constraints of a company paying its bills. As a fullstack developer, one of my strengths is broad enough experience to implement tools, both new & familiar, across engineering boundaries (frontend, backend, data stores, apis, infrastructure, and deployment).
 
-**How to Navigate This Project** To avoid asking y'all to drink from a firehose, I've prepared 3 sections of this readme file that I hope will help you quickly become aquainted with my experience & decision making style:
+**Quickly Understanding This Project** Trying to grok a project by reading the codebase is drinking from a firehose. Try this instead:
 
-- **For coding style insights**, my Project Ecosystem Overview (below) will link each technology directly to a relevant piece of code in the github project repo.
-- **For project delivery insights**, my Project Roadmap (below) will show how I typically plan and prioritize projects that I work on.
-- **For decision-making insights**, my "Book Club" Questions (below) outline a set of technical and architectural considerations I faced when choosing technologies for this project.
+- **Project Ecosystem Overview** (below) links each technology directly to a relevant piece of code in the github project repo. (It's also a heuristic for me to make sure I'm going broad rather than deep on the individual pieces.)
+- **My Project Roadmap** (also below) is helpful for planning and prioritizing this thing so it doesn't (🤞) become another half finished experimentation repo.
+- **My "Book Club" Questions** (further below) answer some technical and architectural considerations that came up in conversation at some point.
 
 ## Project Ecosystem Overview
 
